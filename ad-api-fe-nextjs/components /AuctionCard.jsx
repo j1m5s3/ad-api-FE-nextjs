@@ -22,15 +22,11 @@ const AuctionCard = ({ auctionData }) => {
                 <CardBody>
                     <CardTitle tag="h5">Auction ID {auction_id}</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                    <CardText>
-                       <p>Start Price: {auction_starting_price}</p>
-                        <p>Current Price: {auction_current_price}</p>
-                        <p>Discount Rate: {auction_discount_rate}</p>
-                    </CardText>
-                    <CardText>
-                       <p>Start Date: {auction_start_date}</p>
-                       <p>End Date: {auction_end_date}</p>
-                    </CardText>
+                    <CardText tag="p">Start Price: {auction_starting_price}</CardText>
+                    <CardText tag="p">Current Price: {auction_current_price}</CardText>
+                    <CardText tag="p">Discount Rate: {auction_discount_rate}</CardText>
+                    <CardText tag="p">Start Date: {auction_start_date}</CardText>
+                    <CardText tag="p">End Date: {auction_end_date}</CardText>
                     <Button>Button</Button>
                 </CardBody>
             </Card>

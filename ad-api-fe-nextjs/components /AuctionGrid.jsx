@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { Container, Row, Col} from 'reactstrap';
+import { Container, Row, Col, CardGroup} from 'reactstrap';
 
 import { useStateContext} from '../context/StateContext';
+
+import styles from '../styles/Home.module.css'
 
 import AuctionCard from './AuctionCard'
 
@@ -10,17 +12,13 @@ const AuctionGrid = ({ auctionDataArray }) => {
 
     return(
         <>
-            <Container>
-                <Row xs={3}>
+            <CardGroup>
                 {auctionDataArray.map( data => {
-                    return (
-                    <Col>     
+                    return (  
                         <AuctionCard auctionData={data}/>
-                    </Col>
                     )
                 })}
-                </Row>
-            </Container>
+            </CardGroup>
         </>
     )
 }
