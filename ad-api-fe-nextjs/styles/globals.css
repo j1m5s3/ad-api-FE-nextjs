@@ -106,4 +106,85 @@ a {
   }
 }
 
+/* Auction Card */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: grey;
+}
+
+.card {
+  width: 30%;
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+  transition: 0.3s;
+  /*margin-bottom: 20px;*/
+  margin: 2px;
+  background-color: white;
+  border-radius: 10px;
+}
+/*
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+*/
+.card:hover {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(42, 3, 81, 0.841);
+}
+
+.card:hover .card-title {
+  color: #63b7e6;
+}
+
+.card:hover .card-subtitle {
+  color: #555;
+}
+
+.card:hover .card-text {
+  color: #63b7e6;
+}
+
+.card:hover .card-text:after {
+  width: 25px;
+}
+
+.card-title {
+  color: #6f6f6f;
+  display: inline-block;
+  font-size: 1.25vw;
+  font-weight: 100;
+  transition: color 0.3s;
+  margin: 5px;
+}
+
+.card-title:after {
+  content: "";
+  position: relative;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  /*display: block;*/
+  width: 40px;
+  height: 1px;
+  background: #6f6f6f;
+  transition: width 0.3s;
+}
+
+.card-subtitle,
+.card-text {
+  color: black;
+  text-align: left;
+  /*text-indent: 1;*/
+  margin: 5px;
+}
+
+.card-text p {
+  margin: 0px;
+}
+
+.card-img-top {
+  margin:0px;
+}
+/**************************/
+
 

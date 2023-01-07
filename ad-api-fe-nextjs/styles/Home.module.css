@@ -7,6 +7,12 @@
   min-height: 100vh;
 }
 
+.indexMain {
+  margin: 20px;
+  background-color: black;
+  border-radius: 10px;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -275,4 +281,24 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+}
+
+.socialLinks a {
+  margin: 0 10px;
+}
+
+.socialLinks a:hover {
+  color: blue;
+  transform: scale(1.1);
 }

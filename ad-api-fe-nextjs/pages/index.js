@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
+
 import styles from '../styles/Home.module.css'
 
-import { AuctionGrid } from '../components ';
+import { AuctionGrid, Navigationbar } from '../components ';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,11 +17,31 @@ const Home = ({ auctions }) => {
         <title>AD API Auction Front</title>
         <meta name="description" content="Created by James Lynch" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logoAssets/favicon.png" />
       </Head>
-      <main className={styles.grid}>
+      <Navigationbar/>
+      <main className={styles.indexMain}>
         <AuctionGrid auctionDataArray={auctions}/>
       </main>
+      <footer className={styles.footer}>
+        <div className={styles.socialLinks}>
+          <a href="https://www.facebook.com/your-page-name">
+            <FaFacebook />
+          </a>
+          <a href="https://twitter.com/your-handle">
+            <FaTwitter />
+          </a>
+          <a href="https://www.instagram.com/your-handle">
+            <FaInstagram />
+          </a>
+          <a href="https://www.linkedin.com/your-profile">
+            <FaLinkedin />
+          </a>
+          <a href="https://github.com/j1m5s3">
+            <FaGithub />
+          </a>
+        </div>
+      </footer>
     </>
   )
 }

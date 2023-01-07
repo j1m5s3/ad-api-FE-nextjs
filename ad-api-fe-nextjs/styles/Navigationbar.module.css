@@ -1,0 +1,40 @@
+.navList {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: steelblue;
+}
+
+.navListUserAccountOperation {
+  display: flex;
+  justify-content: right;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: darkslategray;
+}
+
+.link {
+  color: black;
+  display: block;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.link:hover {
+  background-color: rgb(182, 212, 156);
+}
+
+.right {
+  float: right;
+}
+
+.inline-div {
+  display: inline-block;
+}
+
+
+
