@@ -28,7 +28,7 @@ const AuctionCard = ({ auctionData }) => {
           const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
           const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
           const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-          setTimeRemaining(`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+          setTimeRemaining(`${days} d, ${hours} hrs, ${minutes} mins, ${seconds} s`);
         } else {
           clearInterval(timer);
           setTimeRemaining("COMPLETE");
