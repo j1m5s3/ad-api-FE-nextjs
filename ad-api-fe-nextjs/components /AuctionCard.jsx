@@ -28,7 +28,7 @@ const AuctionCard = ({ auctionData }) => {
           const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
           const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
           const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-          setTimeRemaining(`${days} d, ${hours} hrs, ${minutes} mins, ${seconds} s`);
+          setTimeRemaining(`${days}d:${hours}hrs:${minutes}mins:${seconds}s`);
         } else {
           clearInterval(timer);
           setTimeRemaining("COMPLETE");
@@ -49,8 +49,8 @@ const AuctionCard = ({ auctionData }) => {
                     <CardText tag="h6">Start Date: {auction_start_date}</CardText>
                     <CardText tag="h6">End Date: {auction_end_date}</CardText>
                     <CardText tag="h6">Time remaining: {timeRemaining}</CardText>
-                    <Button className={styles.button}>Bid</Button>
                 </CardBody>
+                <Button className={styles.button}>Bid</Button>
             </Card>
         </>
     )

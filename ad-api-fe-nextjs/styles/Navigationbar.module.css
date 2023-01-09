@@ -1,8 +1,11 @@
 .nav {
   display: flex;
-  width: 100%;
+  width: 75%;
   height: 1%;
   border-radius: 10px;
+  /*margin: auto;*/
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navListUserAccountOperation {
@@ -20,7 +23,8 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: rgb(52, 183, 183);
+  /*background-color: rgb(52, 183, 183);*/
+  background-image: url('../public/L_Ron_Hoyabembe_banner_image_ecommerce_slim_8k_cartoon_modern.jpg');
   height: 50px;
   width: 100%;
   border-radius: 10px;
@@ -77,15 +81,6 @@
   height: auto;
 }
 
-.searchBar {
-  margin-right: 0%;
-  color: black;
-  display: block;
-  padding: 16px;
-  text-align: center;
-  text-decoration: none;
-  height: 100%;
-}
 
 
 

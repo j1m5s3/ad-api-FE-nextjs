@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useStateContext} from '../context/StateContext';
 import { FcHome } from 'react-icons/fc'
 
+import SearchBar from './SearchBar';
+
 import styles from '../styles/Navigationbar.module.css';
 
 
@@ -22,7 +24,7 @@ const Navigationbar = () => {
                             </a>
                         </Link>
                     </li>
-                    <div className={styles.searchBar}>SEARCH BAR</div>
+                    <SearchBar/>
                     <ul className={styles.navListUserAccountOperation}>
                         <li className={styles.linkContainer}>
                             <Link href="/signup" legacyBehavior>

@@ -1,0 +1,29 @@
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* This will center the search bar */
+  }
+  
+  .input {
+    /*font-size: 1em;*/
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    flex-grow: 1;
+    width: 100%;  /* This will extend the input field to take up half of the available width */
+    height: 100%;
+  }
+  
+  .button {
+    /*font-size: 1em;*/
+    padding: 0.5em 1em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #eee;
+    cursor: pointer;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
