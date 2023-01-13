@@ -9,19 +9,19 @@ import { AuctionGrid, Navigationbar } from '../components ';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Home = ({ auctions }) => {
+const Home = ({ user_data }) => {
 
   return (
     <>
       <Head>
-        <title>AD API Auction Front</title>
+        <title>AD API User Dashboard</title>
         <meta name="description" content="Created by James Lynch" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logoAssets/favicon.png" />
       </Head>
       <Navigationbar/>
       <main className={styles.indexMain}>
-        <AuctionGrid auctionDataArray={auctions}/>
+        <AuctionGrid auctionDataArray={user_data}/>
       </main>
       <footer className={styles.footer}>
         <div className={styles.socialLinks}>
@@ -47,7 +47,7 @@ const Home = ({ auctions }) => {
 }
 
 export const getServerSideProps = async () => {
-  const url = process.env.NEXT_PUBLIC_BE_URL + '/live_auctions';
+  const url = process.env.NEXT_PUBLIC_BE_URL + '/user_data';
   console.log("URL: " + url);
   const res = await fetch(url).then((response) => {
     if (!response.ok) {
@@ -56,10 +56,10 @@ export const getServerSideProps = async () => {
     return response.json();
   });
 
-  const auctions = res.data;
+  const user_data = res.data;
   return {
-    props: {auctions}
+    props: {user_data}
   };
 };
 
-export default Home;
+export default DashBoard;

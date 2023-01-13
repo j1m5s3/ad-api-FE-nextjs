@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
 
+import styles from '../styles/LoginForm.module.css';
+
 const LoginForm = ({ onSubmit }) => {
-  const [username, setUsername] = useState('');
+  const [email_address, setEmail_Address] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(username, password);
+    console.log("HERE-0");
+    console.log(email_address);
+    console.log(password);
+    onSubmit(email_address, password);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.formBody}>
       <label>
-        Username:
-        <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
+        Email:
+        <input type="text" value={email_address} onChange={(event) => setEmail_Address(event.target.value)} />
       </label>
       <br />
       <label>
