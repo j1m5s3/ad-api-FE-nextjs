@@ -83,6 +83,7 @@
 html,
 body {
   max-width: 100vw;
+  height: 100vw;
   overflow-x: hidden;
 }
 
@@ -96,7 +97,7 @@ body {
     )
     rgb(var(--background-start-rgb));
   */  
-  background-color: black;
+  background-color: grey;
 }
 
 a {
@@ -185,10 +186,15 @@ a {
   margin: 5px;
   margin-bottom: 0;
   font-family: monospace;
+  font-size: 0.55vw;
 }
 
 .card-text p {
   margin: 0px;
+}
+
+.card-text h6 {
+  font-size: 0.65vw;
 }
 
 .card-img-top {
@@ -204,6 +210,13 @@ a {
   text-align: center;
   text-decoration: none;
   height: 100%;
+}
+
+/***************************/
+.dashboardSelectorDiv {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
 }
 
 

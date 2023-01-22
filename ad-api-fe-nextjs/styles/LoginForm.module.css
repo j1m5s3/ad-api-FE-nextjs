@@ -1,3 +1,9 @@
 .formBody {
     background-color: gray;
+    margin: auto;
+    width: 45vw;
+    justify-content: center;
+    display: grid;
+    border-radius: 10px;
+    font-weight: bold;
 }

@@ -2,15 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
-
+import { useStateContext } from '../context/StateContext';
 import styles from '../styles/Home.module.css'
 
-import { AuctionGrid, Navigationbar } from '../components ';
+import { DashboardDisplayGrid, Navigationbar, DashboardSelector } from '../components ';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Home = ({ user_data }) => {
+const DashBoard = ({user_data}) => {
 
+  const { selector } = useStateContext();
+
+  
+  
   return (
     <>
       <Head>
@@ -20,8 +24,11 @@ const Home = ({ user_data }) => {
         <link rel="icon" href="/logoAssets/favicon.png" />
       </Head>
       <Navigationbar/>
+      <div className='dashboardSelectorDiv'>
+        <DashboardSelector/>
+      </div>
       <main className={styles.indexMain}>
-        <AuctionGrid auctionDataArray={user_data}/>
+        <DashboardDisplayGrid userData={user_data}/>
       </main>
       <footer className={styles.footer}>
         <div className={styles.socialLinks}>
@@ -46,17 +53,19 @@ const Home = ({ user_data }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
   const url = process.env.NEXT_PUBLIC_BE_URL + '/user_data';
-  console.log("URL: " + url);
-  const res = await fetch(url).then((response) => {
-    if (!response.ok) {
-      throw new Error('Network response was not OK');
-    }
-    return response.json();
-  });
-
-  const user_data = res.data;
+  const token = context.query.token;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json', 
+    'Authorization': token}
+  })
+  if (!res.ok) {
+      return {redirect: {destination: '/', permanent: false,}}
+  }
+  const user_data = await res.json();
+  console.log(user_data)
   return {
     props: {user_data}
   };

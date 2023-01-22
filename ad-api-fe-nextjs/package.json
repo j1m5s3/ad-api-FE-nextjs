@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "add-component": "node append_to_component_index.js"
   },
   "dependencies": {
     "@next/font": "13.1.1",

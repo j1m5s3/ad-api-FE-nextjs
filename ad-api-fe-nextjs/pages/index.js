@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { useStateContext, StateContext } from '../context/StateContext'
 
 import styles from '../styles/Home.module.css'
 
@@ -11,6 +12,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Home = ({ auctions }) => {
 
+  const {setIsAuthenticated, publicData, setPublicData} = useStateContext();
+  
   return (
     <>
       <Head>

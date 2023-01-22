@@ -1,0 +1,8 @@
+.selectorButtonDiv {
+    height: 100%;
+    width: 100%;
+}
+.selectorButtonDiv Button {
+    margin-right: 5px;
+    border-radius: 5px;
+}
