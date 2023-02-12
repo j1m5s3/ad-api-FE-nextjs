@@ -7,7 +7,11 @@ export const StateContext = ({children}) => {
     const [publicData, setPublicData] = useState({});
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    // auctions, spaces, advertisements
+    // Data to forward to user dash forms
+    const [userDataOfFocus, setUserDataOfFocus] = useState({});
+
+    // auctions, spaces, advertisements, create_auction, 
+    // create_space, create_ad_media, remove
     const [selector, setSelector] = useState('auctions');
 
     return(
@@ -18,6 +22,8 @@ export const StateContext = ({children}) => {
             setPublicData,
             isAuthenticated,
             setIsAuthenticated,
+            userDataOfFocus,
+            setUserDataOfFocus,
             selector,
             setSelector
         }}>

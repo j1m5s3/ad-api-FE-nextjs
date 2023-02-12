@@ -25,4 +25,4 @@ const DashboardSelector = () => {
     )
 }
 
-export default DashboardSelector
+export default DashboardSelector;

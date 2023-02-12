@@ -3,13 +3,26 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Container, Row, Col
 } from 'reactstrap';
-import styles from '../styles/AuctionCard.module.css'
+import Link from 'next/link';
+import { router } from 'next/router';
+import { useStateContext } from '../context/StateContext';
+
+import user_dashboard_styles from '../styles/UserDashboardCardButton.module.css'
+import styles from '../styles/AuctionCard.module.css';
 
 const UserDataCard = ({ data }) => {
-  //console.log(data)
-  //for (let [key, value] of Object.entries(data)) {
-  //  console.log(`${key}: ${value}`);
-//}
+  const { selector, setSelector, setUserDataOfFocus } = useStateContext();
+
+  const handleClickAuction = (data) => {
+    setUserDataOfFocus(data);
+    setSelector('create_auction');
+  }
+
+  const handleClickRemove = (data) => {
+    setUserDataOfFocus(data);
+    setSelector('remove');
+  }
+
   if ("ref_data" in data) {
     console.log(Object.entries(data.ref_data))
   }
@@ -39,6 +52,20 @@ const UserDataCard = ({ data }) => {
             }
           })}
         </CardBody>
+        {selector == 'auctions' && (<Button onClick={() => handleClickRemove(data)} className={styles.button}>Remove</Button>)}
+        {selector == 'spaces' && (
+          <Container>
+            <Row>
+              <Col>
+                <Button className={user_dashboard_styles.buttonTop}>Edit</Button>
+              </Col>
+              <Col>
+                <Button onClick={() => handleClickAuction(data)} className={styles.button}>Auction</Button>
+              </Col>
+            </Row>
+          </Container>)}
+        {selector == 'advertisements' && (
+          <Button onClick={() => handleClickRemove(data)} className={styles.button}>Remove</Button>)}
       </Card>
     </>
   )

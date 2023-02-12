@@ -7,9 +7,10 @@ import { useStateContext } from '../context/StateContext';
 import styles from '../styles/Home.module.css'
 
 import UserDataCard from './UserDataCard';
+import UserDashAuctionForm from './UserDashAuctionForm';
 
 const DashboardDisplayGrid = ({ userData }) => {
-    const { selector } = useStateContext()
+    const { selector, setUserData } = useStateContext();
     const [auctionsExist, setAuctionsExist] = useState(false);
     const [spacesExist, setSpacesExit] = useState(false);
     const [advertisementsExist, setAdvertisementsExist] = useState(false);
@@ -19,6 +20,7 @@ const DashboardDisplayGrid = ({ userData }) => {
 
     useEffect(() => {
         if ('data' in userData) {
+            setUserData(userData.data)
             if ('auctions' in userData.data) {
                 setAuctions(userData.data.auctions);
                 setAuctionsExist(true);
@@ -44,7 +46,7 @@ const DashboardDisplayGrid = ({ userData }) => {
                         )
                     })}
 
-                {spacesExist && 'selector' == 'spaces' &&
+                {spacesExist && selector == 'spaces' &&
                     spaces.map(data => {
                         return (
                             <UserDataCard data={data} />
@@ -57,6 +59,9 @@ const DashboardDisplayGrid = ({ userData }) => {
                             <UserDataCard data={data} />
                         )
                     })}
+                {selector == 'create_auction' && <UserDashAuctionForm/>}
+                {selector == 'create_space'}
+                {selector == 'create_ad_media'}
             </div>
         </>
     )

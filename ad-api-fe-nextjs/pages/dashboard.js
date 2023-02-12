@@ -12,8 +12,6 @@ const inter = Inter({ subsets: ['latin'] })
 const DashBoard = ({user_data}) => {
 
   const { selector } = useStateContext();
-
-  
   
   return (
     <>

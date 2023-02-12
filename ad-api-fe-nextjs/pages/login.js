@@ -21,7 +21,7 @@ const Login = () => {
   const handleLogin = async (email_address, password) => {
     try {
      
-      const url = process.env.NEXT_PUBLIC_BE_URL+ '/login';
+      const url = process.env.NEXT_PUBLIC_BE_URL + '/login';
       console.log(url);
       const res = await fetch(url, {
         method: 'POST',

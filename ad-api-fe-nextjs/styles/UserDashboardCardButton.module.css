@@ -1,0 +1,55 @@
+.buttonTop {
+    display: block;
+    background-color:black; 
+    border: none;
+    color: white;
+    /*padding: 15px 32px;*/
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    /*border-radius: 8px;*/
+    /*margin: auto;*/
+    margin-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.buttonTop:hover {
+    background-color: #3e8e41;
+  }
+
+.buttonIntermediate {
+    display: block;
+    background-color:black; 
+    border: none;
+    color: white;
+    /*padding: 15px 32px;*/
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    /*border-radius: 8px;*/
+    /*margin: auto;*/
+}
+
+.buttonBottom {
+    display: block;
+    background-color:black; 
+    border: none;
+    color: white;
+    /*padding: 15px 32px;*/
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    /*border-radius: 8px;*/
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    /*margin: auto;*/
+}
