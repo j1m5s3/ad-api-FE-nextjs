@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { setCookie } from 'nookies';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { useStateContext, StateContext } from '../context/StateContext'
+import { useStateContext } from '../context/StateContext'
 
 import Link from 'next/link';
 import Head from 'next/head';
@@ -15,8 +15,8 @@ import styles from '../styles/Login.module.css'
 const Login = () => {
   const router = useRouter();
   const [error, setError] = useState(null);
-
-  const {setIsAuthenticated} = useStateContext();
+  
+  const {setIsAuthenticated, setUserToken} = useStateContext();
 
   const handleLogin = async (email_address, password) => {
     try {
@@ -34,6 +34,7 @@ const Login = () => {
         setError(data.error);
       } else {
         setIsAuthenticated(true);
+        setUserToken(data.token);
         router.push({pathname: '/dashboard', query: {token: data.token}});
       }
     } catch (error) {

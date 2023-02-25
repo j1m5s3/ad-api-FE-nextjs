@@ -14,6 +14,8 @@ export const StateContext = ({children}) => {
     // create_space, create_ad_media, remove
     const [selector, setSelector] = useState('auctions');
 
+    const [userToken, setUserToken] = useState('');
+
     return(
         <Context.Provider value={{
             userData,
@@ -25,7 +27,9 @@ export const StateContext = ({children}) => {
             userDataOfFocus,
             setUserDataOfFocus,
             selector,
-            setSelector
+            setSelector,
+            userToken,
+            setUserToken
         }}>
             {children}
         </Context.Provider>
