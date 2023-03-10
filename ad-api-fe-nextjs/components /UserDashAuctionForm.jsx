@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useStateContext } from '../context/StateContext';
 
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Container, Row, Col
+} from 'reactstrap';
 
 const UserDashAuctionForm = () => {
   const router = useRouter();
@@ -35,17 +39,17 @@ const UserDashAuctionForm = () => {
     console.log(userToken)
     const res = await fetch(url, {
       method: 'POST',
-      headers: {'Content-Type': 'application/json','Authorization': userToken},
+      headers: { 'Content-Type': 'application/json', 'Authorization': userToken },
       body: JSON.stringify(requestData)
     })
     if (!res.ok) {
       setRequestSuccess(true);
-      setTimeout(() => router.push({pathname: '/dashboard', query: {token: userToken}}), 3000)
+      setTimeout(() => router.push({ pathname: '/dashboard', query: { token: userToken } }), 3000)
       setSelector('auctions');
     } else {
       setRequestSuccess(true);
       setShowSuccessMsg(true);
-      setTimeout(() => router.push({pathname: '/dashboard', query: {token: userToken}}), 3000)
+      setTimeout(() => router.push({ pathname: '/dashboard', query: { token: userToken } }), 3000)
       setSelector('auctions');
     }
 
@@ -70,22 +74,13 @@ const UserDashAuctionForm = () => {
   return (
     <>
       {requestSuccess && showSuccessMsg && (
-        <SuccessMessage/>
+        <SuccessMessage />
       )}
       {requestSuccess && !showSuccessMsg && (
-        <FailMessage/>
+        <FailMessage />
       )}
       {!requestSuccess && !showSuccessMsg && (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Contract Type:
-            <input
-              type="text"
-              value={contractType}
-              onChange={(event) => setContractType(event.target.value)}
-            />
-          </label>
-          <br />
+        <form onSubmit={handleSubmit} className="auctionForm">
           <label>
             Starting Price:
             <input
@@ -123,9 +118,35 @@ const UserDashAuctionForm = () => {
           </label>
           <br />
           <button type="submit">Submit</button>
-        </form>)}
+        </form>
+        )}
+      <Card>
+        <CardImg top width="100%" src="logoAssets/logo_transparent.png" alt="Card image cap" />
+        <CardBody>
+          <CardTitle tag="h5">ID: {userDataOfFocus._id}</CardTitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
+          {Object.entries(userDataOfFocus).map(([key, value]) => {
+            if (key !== "_id" && key != "ref_data") {
+              return (
+                <>
+                  <CardText tag="h6">{key}: {value}</CardText>
+                </>
+              );
+            }
+            if (key == "ref_data") {
+              Object.entries(userDataOfFocus.ref_data).map(([ref_data_key, ref_data_value]) => {
+                return (
+                  <>
+                    <CardText tag="h6">{ref_data_key}: {ref_data_value}</CardText>
+                  </>
+                )
+              })
+            }
+          })}
+        </CardBody>
+      </Card>
     </>
-  );
+      );
 }
 
-export default UserDashAuctionForm
+      export default UserDashAuctionForm

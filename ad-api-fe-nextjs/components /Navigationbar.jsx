@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+
 import { useStateContext } from '../context/StateContext';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { FcHome } from 'react-icons/fc'
 
 import SearchBar from './SearchBar';

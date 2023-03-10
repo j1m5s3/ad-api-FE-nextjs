@@ -220,4 +220,10 @@ a {
   text-align: center;
 }
 
+.auctionForm {
+  margin-top: 10%;
+  margin-bottom: 100%;
+  background-color: gray;
+}
+
 
